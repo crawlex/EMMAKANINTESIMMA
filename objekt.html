@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script>
+        //skapa en klass
+        function Warrior(name, hp, strength) {
+
+            this.name = name;
+            this.hp = hp;
+            this.strength = strength;
+            console.log("En krigare är född. Han ska heta " + this.name + ". Han är en överlevare med " + this.hp + " hp och han är stark som en oxe med " + this.strength + " styrka.");
+
+        }
+        //metod att bli skadad
+        Warrior.prototype.hurt = function (damage) {
+                this.hp = this.hp - damage;
+                console.log(this.name + " skadar sig lite han förlorade " + damage + " hp och har kvar " + this.hp + " hp.")
+            }
+            //metod att skada
+        Warrior.prototype.attack = function (opponent) {
+
+            console.log(this.name + " attackerar " + opponent.name + ", ");
+            opponent.hurt(this.strength);
+
+
+        }
+
+        //instantiera ett objekt av klassen warrior
+        var Warriors = [new Warrior("Glenn", 100, 12), new Warrior("Köttbullen", 300, 1), new Warrior("Kim the one and only", 1, 10000)]
+        Warriors[2].attack(Warriors[0]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
